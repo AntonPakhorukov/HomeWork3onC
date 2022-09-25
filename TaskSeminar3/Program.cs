@@ -138,7 +138,7 @@ void Task27()
 {
     Console.Write("Введите букву: ");
     string letter = Console.ReadLine();
-    string[] cityes = { "Новосибирск", "Москва", "Тюмень", "Иркутск", "Якутск"};
+    string[] cityes = { "Новосибирск", "Москва", "Тюмень", "Иркутск", "Владивосток"};
     int[] value = { 0, 0, 0, 0, 0};
     for (int a = 0; a < cityes.Length; a++)
     {
@@ -150,48 +150,28 @@ void Task27()
             {
               value[a] = value[a] + 1;  
             }
-     
         }
-     
     }
     int MaxNumber(int a, int b, int c, int d, int e) {
         int max = a;
-        int indexArray = 1;
-
         if (b > max) {
             max = b;
-            indexArray = 2;
         } 
         if (c > max) {
             max = c;
-            indexArray = 3;
         }
         if (d > max) {
             max = d;
-            indexArray = 4;
         }
         if (e > max) {
             max = e;
-            indexArray = 5;
         }
-        Console.WriteLine($"IndexArray = {indexArray}");
-        Console.WriteLine($"Max значение = {max}");
-        return indexArray;
+        return max;
     }
     int cityNumber = MaxNumber(value[0], value[1], value[2], value[3], value[4]);
-    //Console.WriteLine($"Город под номером {cityNumber}");
-
-    Console.WriteLine("Новосибирск, Москва, Тюмень, Иркутск, Якутск");
-    Console.WriteLine(value[0]);
-    Console.WriteLine(value[1]);
-    Console.WriteLine(value[2]);
-    Console.WriteLine(value[3]);
-    Console.WriteLine(value[4]);
-    Console.WriteLine($"Совпадений больше в городе {cityNumber}");
-    if (cityNumber == 1) Console.WriteLine(cityes[0]);
-    if (cityNumber == 2) Console.WriteLine(cityes[1]);
-    if (cityNumber == 3) Console.WriteLine(cityes[2]);
-    if (cityNumber == 4) Console.WriteLine(cityes[3]);
-    if (cityNumber == 5) Console.WriteLine(cityes[4]);
-    Console.WriteLine();
+    if (cityNumber == value[0]) Console.WriteLine(cityes[0]);
+    if (cityNumber == value[1]) Console.WriteLine(cityes[1]);
+    if (cityNumber == value[2]) Console.WriteLine(cityes[2]);
+    if (cityNumber == value[3]) Console.WriteLine(cityes[3]);
+    if (cityNumber == value[4]) Console.WriteLine(cityes[4]);
 }
