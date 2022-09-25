@@ -169,9 +169,7 @@ void Task27()
         return max;
     }
     int cityNumber = MaxNumber(value[0], value[1], value[2], value[3], value[4]);
-    if (cityNumber == value[0]) Console.WriteLine(cityes[0]);
-    if (cityNumber == value[1]) Console.WriteLine(cityes[1]);
-    if (cityNumber == value[2]) Console.WriteLine(cityes[2]);
-    if (cityNumber == value[3]) Console.WriteLine(cityes[3]);
-    if (cityNumber == value[4]) Console.WriteLine(cityes[4]);
+    for (int j =0; j < value.Length; j++) {
+        if (cityNumber == value[j]) Console.WriteLine(cityes[j]);
+    }
 }
