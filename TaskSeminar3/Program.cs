@@ -21,38 +21,62 @@ A (7,-5, 0); B (1,-1,9) -> 11.53
 10 -> 4
 20 -> 7
 30 -> 8
+
+Дополнительная задача (27): Напишите программу, которая на вход принимает букву, 
+необходимо создать массив из 5 названий городов, и вывести на экран те (тот), 
+где чаще всего встречается введённая буква.
+
+Введённая буква: "о", массив ("Москва", "Тюмень", "Новосибирск") -> "Новосибирск"
 */
 
 Console.Clear();
-Console.WriteLine("Какую задачу запустить (19, 21, 23, 25) ?");
+Console.WriteLine("Какую задачу запустить (19, 21, 23, 25, 27) ?");
 int task = int.Parse(Console.ReadLine());
-if (task == 19) {
+if (task == 19)
+{
     Task19();
-} else if (task == 21) {
+}
+else if (task == 21)
+{
     Task21();
-} else if (task == 23) {
+}
+else if (task == 23)
+{
     Task23();
-} else if (task == 25) {
+}
+else if (task == 25)
+{
     Task25();
 }
+else if (task == 27)
+{
+    Task27();
+}
 
-void Task19() {
+void Task19()
+{
     Console.Write("Введите пятизначное число: ");
     int numbers = int.Parse(Console.ReadLine());
-    if (numbers / 10000 > 10 || numbers / 10000 < 1) {
+    if (numbers / 10000 > 10 || numbers / 10000 < 1)
+    {
         Console.WriteLine("Вы ввели не пятизначное число");
         return;
     }
-    if (numbers / 10000 == numbers % 10) {
-        if ((numbers / 1000) % 10 == (numbers / 10) % 10) {
+    if (numbers / 10000 == numbers % 10)
+    {
+        if ((numbers / 1000) % 10 == (numbers / 10) % 10)
+        {
             Console.WriteLine("Да, это число палиндром");
         }
-    } else {
+    }
+    else
+    {
         Console.WriteLine("Нет, это не число палиндром");
     }
 }
 
-void Task21() {
+void Task21()
+{
     Console.Write("Введите координату x1: ");
     double x1 = double.Parse(Console.ReadLine());
     Console.Write("Введите координату y1: ");
@@ -71,22 +95,28 @@ void Task21() {
     Console.WriteLine(Math.Round(result, 2));
 }
 
-void Task23() {
+void Task23()
+{
     Console.Write("Введите число от 1 до N: ");
     int number = int.Parse(Console.ReadLine());
-    if (number < 0) {
+    if (number < 0)
+    {
         number = -number;
-    } else if (number == 0) {
+    }
+    else if (number == 0)
+    {
         Console.WriteLine("Вы ввели 0");
     }
     int count = 1;
-    while (count <= number) {
+    while (count <= number)
+    {
         Console.Write((count * count * count) + " ");
-        count++;        
+        count++;
     }
 }
 
-void Task25() {
+void Task25()
+{
     Console.Write("Введите радиус круга: ");
     double r = double.Parse(Console.ReadLine());
     if (r <= 0) Console.WriteLine("Вы ввели не верное число");
@@ -95,11 +125,70 @@ void Task25() {
     value = (int)s;
     int x = 10;
     int max = value % x;             // 248
-    while (value > 0) {
+    while (value > 0)
+    {
         if ((value / x) % 10 > max) max = (value / x) % 10;
         value = value / 10;
     }
     //Console.WriteLine(s);
     Console.WriteLine($"Площадь круга = {s}, максимальная цифра в площади круга = {max}");
+}
 
+void Task27()
+{
+    Console.Write("Введите букву: ");
+    string letter = Console.ReadLine();
+    string[] cityes = { "Новосибирск", "Москва", "Тюмень", "Иркутск", "Якутск"};
+    int[] value = { 0, 0, 0, 0, 0};
+    for (int a = 0; a < cityes.Length; a++)
+    {
+        string city = cityes[a];
+        city = city.ToLower();
+        for (int b = 0; b < city.Length; b++)
+        {
+            if (Convert.ToString(city[b]) == letter.ToLower())
+            {
+              value[a] = value[a] + 1;  
+            }
+     
+        }
+     
+    }
+    int MaxNumber(int a, int b, int c, int d, int e) {
+        int max = a;
+        int indexArray1 = 1;
+        int indexArray2;
+        int indexArray3;
+        int indexArray4;
+        int indexArray5;
+        if (b > max) {
+            max = b;
+            indexArray1++;
+        } else if (b == max) {
+            indexArray2 = indexArray1;
+        }
+        if (c > max) {
+            max = c;
+            indexArray1++;
+            indexArray2 = 0;
+        } else if (c == max) {
+
+        }
+        if (d > max) {
+            max = d;
+            indexArray1++;
+        }
+        if (e > max) {
+            max = e;
+            indexArray++;
+        }
+        return indexArray;
+    }
+    int cityNumber = MaxNumber(value[0], value[1], value[2], value[3], value[4]);
+    //Console.WriteLine($"Город под номером {cityNumber}");
+    if (cityNumber == 1) Console.WriteLine(cityes[0]);
+    if (cityNumber == 2) Console.WriteLine(cityes[1]);
+    if (cityNumber == 3) Console.WriteLine(cityes[2]);
+    if (cityNumber == 4) Console.WriteLine(cityes[3]);
+    if (cityNumber == 5) Console.WriteLine(cityes[4]);
 }
