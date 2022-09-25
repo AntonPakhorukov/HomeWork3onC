@@ -156,39 +156,42 @@ void Task27()
     }
     int MaxNumber(int a, int b, int c, int d, int e) {
         int max = a;
-        int indexArray1 = 1;
-        int indexArray2;
-        int indexArray3;
-        int indexArray4;
-        int indexArray5;
+        int indexArray = 1;
+
         if (b > max) {
             max = b;
-            indexArray1++;
-        } else if (b == max) {
-            indexArray2 = indexArray1;
-        }
+            indexArray = 2;
+        } 
         if (c > max) {
             max = c;
-            indexArray1++;
-            indexArray2 = 0;
-        } else if (c == max) {
-
+            indexArray = 3;
         }
         if (d > max) {
             max = d;
-            indexArray1++;
+            indexArray = 4;
         }
         if (e > max) {
             max = e;
-            indexArray++;
+            indexArray = 5;
         }
+        Console.WriteLine($"IndexArray = {indexArray}");
+        Console.WriteLine($"Max значение = {max}");
         return indexArray;
     }
     int cityNumber = MaxNumber(value[0], value[1], value[2], value[3], value[4]);
     //Console.WriteLine($"Город под номером {cityNumber}");
+
+    Console.WriteLine("Новосибирск, Москва, Тюмень, Иркутск, Якутск");
+    Console.WriteLine(value[0]);
+    Console.WriteLine(value[1]);
+    Console.WriteLine(value[2]);
+    Console.WriteLine(value[3]);
+    Console.WriteLine(value[4]);
+    Console.WriteLine($"Совпадений больше в городе {cityNumber}");
     if (cityNumber == 1) Console.WriteLine(cityes[0]);
     if (cityNumber == 2) Console.WriteLine(cityes[1]);
     if (cityNumber == 3) Console.WriteLine(cityes[2]);
     if (cityNumber == 4) Console.WriteLine(cityes[3]);
     if (cityNumber == 5) Console.WriteLine(cityes[4]);
+    Console.WriteLine();
 }
