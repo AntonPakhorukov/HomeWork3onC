@@ -138,8 +138,8 @@ void Task27()
 {
     Console.Write("Введите букву: ");
     string letter = Console.ReadLine();
-    string[] cityes = { "Новосибирск", "Москва", "Тюмень", "Иркутск", "Владивосток"};
-    int[] value = { 0, 0, 0, 0, 0};
+    string[] cityes = { "Новосибирск", "Москва", "Тюмень", "Иркутск", "Владивосток" };
+    int[] value = { 0, 0, 0, 0, 0 };
     for (int a = 0; a < cityes.Length; a++)
     {
         string city = cityes[a];
@@ -148,28 +148,23 @@ void Task27()
         {
             if (Convert.ToString(city[b]) == letter.ToLower())
             {
-              value[a] = value[a] + 1;  
+                value[a] = value[a] + 1;
             }
         }
     }
-    int MaxNumber(int a, int b, int c, int d, int e) {
+    int MaxNumber(int a, int b, int c, int d, int e)
+    {
         int max = a;
-        if (b > max) {
-            max = b;
-        } 
-        if (c > max) {
-            max = c;
-        }
-        if (d > max) {
-            max = d;
-        }
-        if (e > max) {
-            max = e;
+        int[] array = {a, b, c, d, e};
+        for (int i = 1; i < array.Length; i++)
+        {
+            if (array[i] > max) max = array[i];
         }
         return max;
     }
     int cityNumber = MaxNumber(value[0], value[1], value[2], value[3], value[4]);
-    for (int j =0; j < value.Length; j++) {
+    for (int j = 0; j < value.Length; j++)
+    {
         if (cityNumber == value[j]) Console.WriteLine(cityes[j]);
     }
 }
